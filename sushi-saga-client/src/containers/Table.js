@@ -8,20 +8,20 @@ const Table = (props) => {
     })
   }
 
+  const moneySum = () => {
+    let result = props.money.reduce((a,b) => a + b, 0)
+    return result
+  }
+  
   return (
     <Fragment>
       <h1 className="remaining">
-        You have: ${ /* Give me how much money I have left */ } remaining!
+        You have: ${ 100 - moneySum() } remaining!
       </h1>
       <div className="table">
         <div className="stack">
           {
-            /* 
-               renderPlates takes an array 
-               and renders an empty plate
-               for every element in the array
-            */
-            renderPlates([])
+            renderPlates(props.money)
           }
         </div>
       </div>
